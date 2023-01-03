@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://crifoppr7ict4"]
+
+[ext_resource type="Script" path="res://testing/testing.gd" id="1_3pgmc"]
+
+[node name="testing" type="Node2D" groups=["seeds"]]
+script = ExtResource("1_3pgmc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -577.5
+offset_right = 578.0
+offset_bottom = 577.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

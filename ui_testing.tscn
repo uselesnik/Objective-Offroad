@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8yctagsermf5"]
+
+[ext_resource type="Script" path="res://Panel.gd" id="1_cgati"]
+
+[node name="Control" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="Panel" type="Panel" parent="."]
+clip_contents = true
+anchors_preset = -1
+anchor_right = 0.317
+anchor_bottom = 1.0
+offset_right = -0.18399
+grow_vertical = 2
+script = ExtResource("1_cgati")
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+anchors_preset = -1
+anchor_left = 0.00642398
+anchor_top = 0.936454
+anchor_right = 1.00642
+anchor_bottom = 0.998454
+offset_top = 9.11401
+grow_horizontal = 2
+grow_vertical = 0
+placeholder_text = "put your text here"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+caret_blink = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+anchors_preset = -1
+anchor_left = 0.006
+anchor_top = 0.005
+anchor_right = 1.0
+anchor_bottom = 0.949
+offset_left = 0.198
+offset_top = -0.235
+offset_bottom = -38.0031
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+focus_mode = 1

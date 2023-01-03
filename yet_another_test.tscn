@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqvjcndqlfs8t"]
+
+[ext_resource type="PackedScene" uid="uid://dhxfuhj0dk4yd" path="res://player/creative_cam.tscn" id="2_rg557"]
+[ext_resource type="PackedScene" path="res://worlds/generation/mdt_world.tscn" id="3_65ytg"]
+[ext_resource type="PackedScene" uid="uid://bo6kxc0r4v32h" path="res://worlds/generation/chunk_generator.tscn" id="3_urpjs"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_co8vv"]
+
+[sub_resource type="Sky" id="Sky_pw40r"]
+sky_material = SubResource("ProceduralSkyMaterial_co8vv")
+
+[sub_resource type="Environment" id="Environment_oqmqf"]
+background_mode = 2
+sky = SubResource("Sky_pw40r")
+tonemap_mode = 3
+tonemap_white = 1.33
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oqmqf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.745976, 0.665973, 0, -0.665973, 0.745976, 0, 4.18373, 4)
+
+[node name="world" type="Node3D" parent="."]
+
+[node name="chunk_generator" parent="world" instance=ExtResource("3_urpjs")]
+
+[node name="mdt_world" parent="world" instance=ExtResource("3_65ytg")]
+
+[node name="creativeCam" parent="." instance=ExtResource("2_rg557")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5546, 0)

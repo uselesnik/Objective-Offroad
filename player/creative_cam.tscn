@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhxfuhj0dk4yd"]
+
+[ext_resource type="Script" path="res://player/creativeCam.gd" id="1_o3agh"]
+
+[node name="creativeCam" type="Node3D"]
+script = ExtResource("1_o3agh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true
