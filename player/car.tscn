@@ -1,12 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cr38bvuwl623i"]
 
 [ext_resource type="Script" path="res://player/car.gd" id="1_7e7vl"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vy63"]
-albedo_color = Color(1, 0.352941, 0.443137, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_kk4xc"]
-material = SubResource("StandardMaterial3D_5vy63")
+[ext_resource type="PackedScene" uid="uid://dk1ajm4by8agb" path="res://models/untitled.glb" id="2_f1emx"]
+[ext_resource type="Material" uid="uid://bqkdvti86ql8t" path="res://models/red.tres" id="3_drjdm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h05rn"]
 size = Vector3(1, 2.4219, 1)
@@ -18,23 +14,20 @@ albedo_color = Color(0.207843, 0.223529, 0.211765, 1)
 material = SubResource("StandardMaterial3D_2pr3n")
 
 [node name="car" type="VehicleBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148157, 0)
+transform = Transform3D(1.02, 0, 0, 0, 1.02, 0, 0, 0, 1.2, 0, 0.148157, 0)
+collision_layer = 2
 mass = 1000.0
 engine_force = 307.2
 brake = 0.2
 steering = 1.82212
 script = ExtResource("1_7e7vl")
 
-[node name="car_body" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.83022, 0, 0, 0, 0.307523, 0, 0, 0, 1.23007, 0, 0, 0)
-mesh = SubResource("BoxMesh_kk4xc")
-
 [node name="CollisionShape3d2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.59807, 0, 0, 0, 0.0958868, 0, 0, 0, 1.0806, 0, 0.0379636, 0)
 shape = SubResource("BoxShape3D_h05rn")
 
 [node name="front_right_wheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.48949, -0.22061, 0.66)
+transform = Transform3D(-4.58095e-08, 0, 1.048, 0, 1.048, 0, -1.048, 0, -4.58095e-08, 0.48949, -0.22061, 0.66)
 brake = 0.2
 steering = 1.82212
 use_as_steering = true
@@ -48,7 +41,7 @@ transform = Transform3D(-2.6052e-08, -0.077, 0, 0.596, -3.36578e-09, 0, 0, 0, 0.
 mesh = SubResource("CylinderMesh_5yvg6")
 
 [node name="front_left_wheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.48949, -0.22061, -0.66)
+transform = Transform3D(-4.58095e-08, 0, 1.048, 0, 1.048, 0, -1.048, 0, -4.58095e-08, 0.48949, -0.22061, -0.66)
 brake = 0.2
 steering = 1.82212
 use_as_steering = true
@@ -62,7 +55,7 @@ transform = Transform3D(-2.6052e-08, -0.077, 0, 0.596, -3.36578e-09, 0, 0, 0, 0.
 mesh = SubResource("CylinderMesh_5yvg6")
 
 [node name="back_right_wheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.489282, -0.22061, 0.66)
+transform = Transform3D(-4.58095e-08, 0, 1.048, 0, 1.048, 0, -1.048, 0, -4.58095e-08, -0.650422, -0.22061, 0.66)
 engine_force = 307.2
 brake = 0.2
 use_as_traction = true
@@ -76,7 +69,7 @@ transform = Transform3D(-2.6052e-08, -0.077, 0, 0.596, -3.36578e-09, 0, 0, 0, 0.
 mesh = SubResource("CylinderMesh_5yvg6")
 
 [node name="back_left_wheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.489282, -0.22061, -0.66)
+transform = Transform3D(-4.58095e-08, 0, 1.048, 0, 1.048, 0, -1.048, 0, -4.58095e-08, -0.650422, -0.22061, -0.66)
 engine_force = 307.2
 brake = 0.2
 use_as_traction = true
@@ -96,3 +89,14 @@ fov = 81.9565
 [node name="Camera3d" type="Camera3D" parent="."]
 transform = Transform3D(0.0399271, 0.386836, -0.921284, -0.00257148, 0.922056, 0.387049, 0.999199, -0.0130847, 0.0378097, -2.43237, 2.28276, 0)
 fov = 81.9565
+
+[node name="untitled" parent="." instance=ExtResource("2_f1emx")]
+transform = Transform3D(0.251514, 0, 0, 0, 0.251514, 0, 0, 0, 0.251514, 0, 0, 0)
+
+[node name="Cube" parent="untitled" index="0"]
+transform = Transform3D(4.18062, 0, 0, 0, 1, 0, 0, 0, -2.61706, 0, 0, 0)
+surface_material_override/0 = ExtResource("3_drjdm")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+
+[editable path="untitled"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqvjcndqlfs8t"]
 
 [ext_resource type="PackedScene" uid="uid://dhxfuhj0dk4yd" path="res://player/creative_cam.tscn" id="2_rg557"]
-[ext_resource type="PackedScene" path="res://worlds/generation/mdt_world.tscn" id="3_65ytg"]
+[ext_resource type="PackedScene" uid="uid://1n0mi2jstkgk" path="res://worlds/generation/mdt_world.tscn" id="3_65ytg"]
 [ext_resource type="PackedScene" uid="uid://bo6kxc0r4v32h" path="res://worlds/generation/chunk_generator.tscn" id="3_urpjs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_co8vv"]

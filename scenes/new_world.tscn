@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxwf2q00iathx"]
+
+[ext_resource type="Theme" uid="uid://5e15oeeud8lr" path="res://ui/theme.tres" id="1_hdvte"]
+[ext_resource type="Script" path="res://scenes/new_world.gd" id="2_v5717"]
+
+[node name="new_world" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_hdvte")
+script = ExtResource("2_v5717")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 53.0
+offset_top = 60.0
+offset_right = 359.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+text = "Custom seed"
+
+[node name="seed-input" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+placeholder_text = "seed will be chosen randomly"
+editable = false
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_hdvte")
+alignment = 1
+
+[node name="car_butt" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Car mode"
+
+[node name="cam_butt" type="Button" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Creative cam mode"
+
+[connection signal="toggled" from="VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/car_butt" to="." method="_on_car_butt_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/cam_butt" to="." method="_on_cam_butt_pressed"]

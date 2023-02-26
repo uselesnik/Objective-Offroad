@@ -10,8 +10,7 @@ var chunk_size = Globals.chunk_size
 var prev_position = Vector2()
 func _ready():
 	prev_position = Vector2(0,0)
-
-
+	
 func _process(delta):
 	changed_chunk()
 	var movement = Vector3(0,0,0)
@@ -26,7 +25,13 @@ func _process(delta):
 	$".".position += movement.rotated(Vector3(0, 1 , 0), $".".rotation.y)
 
 func _input(event):
-	
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
+			SPEED *= 1.1
+		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+			SPEED *= 0.9
+		if event.button_index == MOUSE_BUTTON_MIDDLE and event.pressed:
+			SPEED = 0.05
 	if event is InputEventMouseMotion:
 		cam.rotate_x(deg_to_rad(-event.relative.y * MOUSE_SENSITIVITY))
 		rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENSITIVITY))

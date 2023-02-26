@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cyfih5gpknr15"]
 
 [ext_resource type="PackedScene" uid="uid://bo6kxc0r4v32h" path="res://worlds/generation/chunk_generator.tscn" id="1_c7heq"]
-[ext_resource type="PackedScene" path="res://worlds/generation/mdt_world.tscn" id="2_n47ec"]
+[ext_resource type="PackedScene" uid="uid://1n0mi2jstkgk" path="res://worlds/generation/mdt_world.tscn" id="2_n47ec"]
 [ext_resource type="PackedScene" uid="uid://cr38bvuwl623i" path="res://player/car.tscn" id="3_uis5v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_co8vv"]
@@ -30,12 +30,13 @@ transform = Transform3D(1, 0, 0, 0, 0.942478, 0.334267, 0, -0.334267, 0.942478, 
 [node name="mdt_world" parent="world" instance=ExtResource("2_n47ec")]
 
 [node name="car" parent="." instance=ExtResource("3_uis5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.349369, 14.2742, 0.699443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.97509, 1.30487, -4.94619)
 
-[node name="CollisionShape3d2" parent="car" index="1"]
+[node name="CollisionShape3d2" parent="car" index="0"]
 transform = Transform3D(1.59807, 0, 0, 0, 0.0958868, 0, 0, 0, 1.0806, 0, 0.0379639, 0)
 
-[node name="Camera3d" parent="car" index="7"]
+[node name="Camera3d" parent="car" index="6"]
 current = true
 
 [editable path="car"]
+[editable path="car/untitled"]

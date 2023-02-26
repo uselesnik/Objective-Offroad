@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://5e15oeeud8lr"]
+
+[ext_resource type="FontFile" uid="uid://cd27tps300qom" path="res://ui/font/Cocogoose-Classic-Medium-trial.ttf" id="1_hkl5o"]
+
+[resource]
+CheckButton/constants/check_v_offset = 0
+CheckButton/constants/h_separation = 4
+CheckButton/constants/outline_size = 0
+CheckButton/fonts/font = ExtResource("1_hkl5o")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 1
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("1_hkl5o")

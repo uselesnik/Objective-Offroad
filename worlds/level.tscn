@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dm2cqyxtxhdck"]
+[gd_scene load_steps=14 format=3 uid="uid://dm2cqyxtxhdck"]
 
 [ext_resource type="Script" path="res://worlds/level.gd" id="1_fv1sy"]
+[ext_resource type="PackedScene" uid="uid://cr38bvuwl623i" path="res://player/car.tscn" id="2_6civx"]
 
 [sub_resource type="Texture2D" id="Texture2D_tiyox"]
 resource_local_to_scene = false
@@ -18,6 +19,7 @@ size = Vector2(10, 10)
 points = PackedVector3Array(-5, 0, -5, -5, 0, 5, 5, 0, -5, 5, 0, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_uc2v8"]
+subdivide_width = 3
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ja36g"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -58,7 +60,7 @@ shape = SubResource("ConvexPolygonShape3D_t5cde")
 transform = Transform3D(123.981, 44.9218, -150.369, -78.5745, -148.114, -109.034, -135.848, 126.666, -74.1678, 64.9753, -373.849, -283.79)
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="StaticBody3d2"]
-transform = Transform3D(3.94313, 0, 0, 0, 1, 0, 0, 0, 3.0066, 0, 0, 0)
+transform = Transform3D(1.65012, -0.391526, 2.46391, -2.8425, -0.692051, 0.112691, 2.17843, -0.606443, -1.71933, -0.527061, -0.993516, -0.731376)
 material_override = SubResource("StandardMaterial3D_wnucd")
 mesh = SubResource("BoxMesh_uc2v8")
 skeleton = NodePath("../..")
@@ -100,3 +102,7 @@ environment = SubResource("Environment_2ihp2")
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.643483, 0.765461, 0, -0.765461, 0.643483, 0.146543, 40.9996, 36.9058)
 shadow_enabled = true
+
+[node name="car" parent="." instance=ExtResource("2_6civx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65823, 8.67117, -26.9745)
+dash_dist = 3000
