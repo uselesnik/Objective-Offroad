@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdhmjirxb1mox"]
+
+[ext_resource type="Script" path="res://player/fuel.gd" id="1_3laax"]
+[ext_resource type="Texture2D" uid="uid://46dt5chdyf3v" path="res://ui/fuel.png" id="2_kqan4"]
+[ext_resource type="Texture2D" uid="uid://b7ecknqlbugyx" path="res://ui/fuel_progress.png" id="3_bhne0"]
+[ext_resource type="Texture2D" uid="uid://cougpd6fm6yq4" path="res://ui/health_bar_under.png" id="4_0h21r"]
+[ext_resource type="Texture2D" uid="uid://tenv7ywjxcdp" path="res://ui/health_bar.png" id="5_gv8ks"]
+[ext_resource type="Texture2D" uid="uid://dvjwb8e8nm2e5" path="res://ui/health_bar_over.png" id="6_a1efe"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3laax")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -256.0
+grow_horizontal = 0
+grow_vertical = 0
+value = 1.0
+fill_mode = 3
+texture_over = ExtResource("2_kqan4")
+texture_progress = ExtResource("3_bhne0")
+tint_progress = Color(0.85098, 1, 0.2, 1)
+
+[node name="health" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_bottom = 66.0
+grow_horizontal = 0
+max_value = 6.0
+value = 1.0
+fill_mode = 1
+texture_under = ExtResource("4_0h21r")
+texture_over = ExtResource("5_gv8ks")
+texture_progress = ExtResource("6_a1efe")

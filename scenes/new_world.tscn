@@ -1,25 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxwf2q00iathx"]
+[gd_scene load_steps=2 format=3 uid="uid://dxwf2q00iathx"]
 
 [ext_resource type="Theme" uid="uid://5e15oeeud8lr" path="res://ui/theme.tres" id="1_hdvte"]
-[ext_resource type="Script" path="res://scenes/new_world.gd" id="2_v5717"]
 
-[node name="new_world" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-theme = ExtResource("1_hdvte")
-script = ExtResource("2_v5717")
+[node name="ColorRect" type="ColorRect"]
+anchors_preset = -1
+anchor_right = 0.998569
+anchor_bottom = 1.00194
+offset_right = -0.35199
+offset_bottom = -0.256012
+size_flags_vertical = 0
+color = Color(0.223529, 0.219608, 0.211765, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 53.0
-offset_top = 60.0
-offset_right = 359.0
-offset_bottom = 192.0
+anchors_preset = -1
+anchor_top = 0.008
+anchor_right = 1.003
+anchor_bottom = 1.024
+offset_top = -1.984
+offset_right = -0.194
+offset_bottom = 0.0479965
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -44,7 +45,3 @@ text = "Car mode"
 [node name="cam_butt" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Creative cam mode"
-
-[connection signal="toggled" from="VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/car_butt" to="." method="_on_car_butt_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/cam_butt" to="." method="_on_cam_butt_pressed"]

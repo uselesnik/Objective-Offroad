@@ -1,24 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgyyvbi05a0k"]
+[gd_scene load_steps=2 format=3 uid="uid://dgyyvbi05a0k"]
 
-[ext_resource type="Theme" uid="uid://5e15oeeud8lr" path="res://ui/theme.tres" id="1_qasb3"]
-[ext_resource type="PackedScene" uid="uid://dxwf2q00iathx" path="res://scenes/new_world.tscn" id="2_tavpj"]
+[ext_resource type="Script" path="res://scenes/title.gd" id="1_1muii"]
 
 [node name="title" type="Node2D"]
+position = Vector2(483, 304)
+script = ExtResource("1_1muii")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_qasb3")
+text = "Play"
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer"]
+[node name="options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_qasb3")
+text = "options"
 
-[node name="new_world" parent="." instance=ExtResource("2_tavpj")]
-offset_left = 307.0
-offset_top = 164.0
-offset_right = 307.0
-offset_bottom = 164.0
+[node name="exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "exit"
+
+[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
