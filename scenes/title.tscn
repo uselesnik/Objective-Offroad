@@ -1,27 +1,72 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgyyvbi05a0k"]
+[gd_scene load_steps=7 format=3 uid="uid://btslvabsoqspr"]
 
 [ext_resource type="Script" path="res://scenes/title.gd" id="1_1muii"]
+[ext_resource type="PackedScene" uid="uid://cb8f446hdjog8" path="res://scenes/new_world.tscn" id="2_qs2pv"]
+[ext_resource type="PackedScene" uid="uid://dxwf2q00iathx" path="res://scenes/options.tscn" id="3_b2282"]
+[ext_resource type="PackedScene" uid="uid://dmm3omi0bi4c3" path="res://music/music_player.tscn" id="4_an3o7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqvht"]
+bg_color = Color(0.227451, 0.227451, 0.227451, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_dqn0f"]
 
 [node name="title" type="Node2D"]
-position = Vector2(483, 304)
 script = ExtResource("1_1muii")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+y_sort_enabled = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.537255, 0.901961, 1, 1)
+
+[node name="colorContainer" type="MarginContainer" parent="."]
+
+[node name="Panel" type="Panel" parent="colorContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vqvht")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 250.0
+offset_bottom = 206.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = SubResource("Theme_dqn0f")
+alignment = 1
 
-[node name="play" type="Button" parent="VBoxContainer"]
+[node name="play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Play"
 
-[node name="options" type="Button" parent="VBoxContainer"]
+[node name="ColorRect" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_qs2pv")]
+layout_mode = 2
+
+[node name="options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "options"
 
-[node name="exit" type="Button" parent="VBoxContainer"]
+[node name="optionSelect" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_b2282")]
+layout_mode = 2
+
+[node name="exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "exit"
 
-[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("4_an3o7")]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]

@@ -20,4 +20,3 @@ grow_vertical = 2
 size_flags_horizontal = 8
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true

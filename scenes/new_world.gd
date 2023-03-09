@@ -2,7 +2,7 @@ extends Control
 @onready var car_scene = preload("res://worlds/car_test.tscn")
 @onready var cam_scene = preload("res://yet_another_test.tscn")
 
-@onready var seed_input = $"VBoxContainer/seed-input" 
+@onready var seed_input = $"seed-input"
 
 func _on_check_button_toggled(button_pressed):
 	var current_mode = seed_input.editable

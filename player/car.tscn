@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr38bvuwl623i"]
+[gd_scene load_steps=8 format=3 uid="uid://cr38bvuwl623i"]
 
 [ext_resource type="Script" path="res://player/car.gd" id="1_7e7vl"]
 [ext_resource type="PackedScene" uid="uid://dk1ajm4by8agb" path="res://models/untitled.glb" id="2_f1emx"]
-[ext_resource type="Material" uid="uid://bqkdvti86ql8t" path="res://models/red.tres" id="3_drjdm"]
+[ext_resource type="Material" uid="uid://dtlls4vjurux0" path="res://ground_material.tres" id="3_ge3lu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2pr3n"]
 albedo_color = Color(0.207843, 0.223529, 0.211765, 1)
@@ -12,6 +12,9 @@ material = SubResource("StandardMaterial3D_2pr3n")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sr0o2"]
 size = Vector3(2.00103, 1.67962, 1.94651)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c27i0"]
+size = Vector3(1.19061, 0.287528, 1.08514)
 
 [node name="car" type="VehicleBody3D"]
 transform = Transform3D(1.022, 0, 0, 0, 1.022, 0, 0, 0, 1.022, 0, 0.148157, 0)
@@ -91,13 +94,21 @@ transform = Transform3D(0.251514, 0, 0, 0, 0.251514, 0, 0, 0, 0.251514, 0, 0, 0)
 
 [node name="Cube" parent="untitled" index="0"]
 transform = Transform3D(4.37718, 0, 0, 0, 0.999083, 0, 0, 0, -2.91392, 0, 0, 0)
-visible = false
-surface_material_override/0 = ExtResource("3_drjdm")
+surface_material_override/0 = ExtResource("3_ge3lu")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.841846, 0, 0, 0, 0.251514, 0, 0, 0, -0.658228, 0.0950939, 0, 0)
 shape = SubResource("BoxShape3D_sr0o2")
+
+[node name="damage_detector" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0102242, 0.162202, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="damage_detector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0698981, 0.194892, 0)
+shape = SubResource("BoxShape3D_c27i0")
+
+[connection signal="body_entered" from="damage_detector" to="." method="_on_damage_detector_body_entered"]
 
 [editable path="untitled"]

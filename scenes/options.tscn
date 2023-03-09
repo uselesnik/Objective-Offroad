@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxwf2q00iathx"]
+
+[ext_resource type="Script" path="res://scenes/options.gd" id="1_060a4"]
+
+[sub_resource type="Theme" id="Theme_uly5d"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchors_preset = -1
+anchor_top = 0.008
+anchor_right = 1.003
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -4.184
+offset_right = -25.4561
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_uly5d")
+script = ExtResource("1_060a4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Render distance"
+
+[node name="SpinBox" type="SpinBox" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+min_value = 2.0
+max_value = 8.0
+value = 4.0
+rounded = true
+suffix = "chunks"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+text = "Volume: "
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 10
+min_value = -30.0
+max_value = 0.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="HBoxContainer3"]
+layout_mode = 2
+text = "Volume: "
+
+[node name="mute" type="CheckBox" parent="HBoxContainer3"]
+custom_minimum_size = Vector2(100, 0)
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 10
+
+[connection signal="changed" from="HBoxContainer2/HSlider" to="." method="_on_h_slider_changed"]
+[connection signal="value_changed" from="HBoxContainer2/HSlider" to="." method="_on_h_slider_value_changed"]

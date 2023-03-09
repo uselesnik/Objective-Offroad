@@ -18,12 +18,11 @@ func _process(delta):
 		prev_value = Globals.fuel_value
 		$TextureProgressBar.value = prev_value
 		$TextureProgressBar.tint_progress = Color.from_hsv(prev_value/360.0 +0.03, 1, 0.5)
-		print(prev_value)
 	
 	if health != Globals.health:
 		health = Globals.health
-		$health.value = health + 0.5
-		print(health)
+		$health.value = health + 0.5 - 1
+
 
 #	if Input.is_action_pressed("ui_down"):
 #		Globals.fuel_value -= 1
@@ -33,3 +32,4 @@ func _process(delta):
 #		Globals.health += 1
 #	if Input.is_action_just_pressed("ui_right"):
 #		Globals.health -= 1
+

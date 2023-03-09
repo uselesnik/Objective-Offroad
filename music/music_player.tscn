@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmm3omi0bi4c3"]
+
+[ext_resource type="AudioStream" uid="uid://c6xrfyuko5dt0" path="res://music/street-racing-132442.mp3" id="1_quelm"]
+[ext_resource type="Script" path="res://music/music_player.gd" id="2_sjktb"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_quelm")
+autoplay = true
+script = ExtResource("2_sjktb")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

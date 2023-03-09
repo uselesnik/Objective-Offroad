@@ -1,5 +1,8 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://dtlls4vjurux0"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dtlls4vjurux0"]
+
+[ext_resource type="Texture2D" uid="uid://b13g4nk4tfqif" path="res://ui/car_texture.png" id="1_gvfgr"]
 
 [resource]
-albedo_color = Color(0.576471, 1, 0.541176, 1)
-roughness = 0.96
+albedo_color = Color(0.819608, 0.219608, 0.176471, 1)
+albedo_texture = ExtResource("1_gvfgr")
+metallic = 0.58

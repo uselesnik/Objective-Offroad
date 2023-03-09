@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyfih5gpknr15"]
+[gd_scene load_steps=10 format=3 uid="uid://cyfih5gpknr15"]
 
 [ext_resource type="PackedScene" uid="uid://bo6kxc0r4v32h" path="res://worlds/generation/chunk_generator.tscn" id="1_c7heq"]
 [ext_resource type="PackedScene" uid="uid://1n0mi2jstkgk" path="res://worlds/generation/mdt_world.tscn" id="2_n47ec"]
 [ext_resource type="PackedScene" uid="uid://cr38bvuwl623i" path="res://player/car.tscn" id="3_uis5v"]
 [ext_resource type="PackedScene" uid="uid://cdhmjirxb1mox" path="res://ui/fuel_meter.tscn" id="4_w2cxw"]
+[ext_resource type="PackedScene" uid="uid://dmm3omi0bi4c3" path="res://music/music_player.tscn" id="5_lxb6d"]
+[ext_resource type="PackedScene" uid="uid://c8en2cnu2xtw" path="res://ui/pause.tscn" id="6_4k6ei"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_co8vv"]
 
@@ -37,6 +39,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.97509, 1.30487, -4.94619)
 current = true
 
 [node name="Control" parent="." instance=ExtResource("4_w2cxw")]
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("5_lxb6d")]
+
+[node name="pause" parent="." instance=ExtResource("6_4k6ei")]
+visible = false
+
+[connection signal="switched_chunks" from="car" to="world/chunk_generator" method="_on_car_switched_chunks"]
 
 [editable path="car"]
 [editable path="car/untitled"]

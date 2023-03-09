@@ -1,7 +1,7 @@
 extends Node3D
 #experimental #$"../mdt_world"
 
-
+signal switched_chunks
 @onready var cam = $Camera3D
 const MOUSE_SENSITIVITY = 0.8
 @export var SPEED = 0.05
@@ -38,13 +38,14 @@ func _input(event):
 		cam.rotation.x= clampf(cam.rotation.x, deg_to_rad(-89.9), deg_to_rad(89.9))
 		
 func changed_chunk():
-	var chunk_coords = Vector2(round(self.position.x / chunk_size), round(self.position.z / chunk_size))
+	var chunk_coords = Vector2(round(self.position.x / chunk_size / 2), round(self.position.z / chunk_size / 2))
 	if (prev_position.x != chunk_coords.x) || (prev_position.y != chunk_coords.y):
 		print("changed_chunk")
-		print(prev_position)
-		print(chunk_coords)
+		emit_signal("switched_chunks", prev_position - chunk_coords, chunk_coords)
+		
 	prev_position = chunk_coords
 	
+
 
 
 
