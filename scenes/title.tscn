@@ -19,8 +19,10 @@ script = ExtResource("1_1muii")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 y_sort_enabled = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,6 +30,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.537255, 0.901961, 1, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="colorContainer" type="MarginContainer" parent="."]
 

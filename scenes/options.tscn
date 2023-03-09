@@ -60,7 +60,7 @@ theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="HBoxContainer3"]
 layout_mode = 2
-text = "Volume: "
+text = "Muted: "
 
 [node name="mute" type="CheckBox" parent="HBoxContainer3"]
 custom_minimum_size = Vector2(100, 0)
@@ -68,5 +68,7 @@ layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 10
 
+[connection signal="value_changed" from="HBoxContainer/SpinBox" to="." method="_on_spin_box_value_changed"]
 [connection signal="changed" from="HBoxContainer2/HSlider" to="." method="_on_h_slider_changed"]
 [connection signal="value_changed" from="HBoxContainer2/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="HBoxContainer3/mute" to="." method="_on_mute_toggled"]

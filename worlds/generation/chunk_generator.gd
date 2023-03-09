@@ -4,11 +4,10 @@ var current_chunks = {}
 @onready var world_gen = get_parent().get_node("mdt_world")
 var chunk_circle_template = []
 
-func _ready():
+func _ready(): 
 	chunk_circle_template = generate_chunk_circle_template()
 	generate_chunk_circle(0,0)
 	print("loaded")
-	generate_chunk_circle(-10,10)
 	pass
 
 func _process(delta):
@@ -64,3 +63,7 @@ func _on_creative_cam_switched_chunks(direction, new_pos):
 func _on_car_switched_chunks(direction, new_pos):
 	generate_chunk_circle(new_pos.x, new_pos.y)
 	erase_unused(new_pos)
+
+
+func _on_spin_box_value_changed(value):
+	chunk_circle_template = generate_chunk_circle_template()

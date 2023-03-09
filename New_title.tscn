@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqvjcndqlfs8t"]
+[gd_scene load_steps=10 format=3 uid="uid://cl3l5d6segul3"]
 
-[ext_resource type="PackedScene" uid="uid://dhxfuhj0dk4yd" path="res://player/creative_cam.tscn" id="2_rg557"]
-[ext_resource type="PackedScene" uid="uid://1n0mi2jstkgk" path="res://worlds/generation/mdt_world.tscn" id="3_65ytg"]
-[ext_resource type="PackedScene" uid="uid://bo6kxc0r4v32h" path="res://worlds/generation/chunk_generator.tscn" id="3_urpjs"]
-[ext_resource type="PackedScene" uid="uid://c8en2cnu2xtw" path="res://ui/pause.tscn" id="4_21r5l"]
-[ext_resource type="PackedScene" uid="uid://b02mlunoodohl" path="res://testing/title_recorder.tscn" id="4_mphgq"]
+[ext_resource type="PackedScene" uid="uid://bo6kxc0r4v32h" path="res://worlds/generation/chunk_generator.tscn" id="1_pubxc"]
+[ext_resource type="PackedScene" uid="uid://1n0mi2jstkgk" path="res://worlds/generation/mdt_world.tscn" id="2_ew6gh"]
+[ext_resource type="PackedScene" uid="uid://dhxfuhj0dk4yd" path="res://player/creative_cam.tscn" id="3_sqoke"]
+[ext_resource type="PackedScene" uid="uid://b02mlunoodohl" path="res://testing/title_recorder.tscn" id="4_ihehy"]
+[ext_resource type="PackedScene" uid="uid://c8en2cnu2xtw" path="res://ui/pause.tscn" id="5_jb6ta"]
+[ext_resource type="PackedScene" uid="uid://btslvabsoqspr" path="res://scenes/title.tscn" id="6_v05t1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_co8vv"]
 
@@ -27,16 +28,18 @@ transform = Transform3D(1, 0, 0, 0, 0.745976, 0.665973, 0, -0.665973, 0.745976, 
 
 [node name="world" type="Node3D" parent="."]
 
-[node name="chunk_generator" parent="world" instance=ExtResource("3_urpjs")]
+[node name="chunk_generator" parent="world" instance=ExtResource("1_pubxc")]
 
-[node name="mdt_world" parent="world" instance=ExtResource("3_65ytg")]
+[node name="mdt_world" parent="world" instance=ExtResource("2_ew6gh")]
 
-[node name="creativeCam" parent="." instance=ExtResource("2_rg557")]
+[node name="creativeCam" parent="." instance=ExtResource("3_sqoke")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5546, 0)
 
-[node name="title_recorder" parent="." instance=ExtResource("4_mphgq")]
+[node name="title_recorder" parent="." instance=ExtResource("4_ihehy")]
 
-[node name="pause" parent="." instance=ExtResource("4_21r5l")]
+[node name="pause" parent="." instance=ExtResource("5_jb6ta")]
+
+[node name="title" parent="." instance=ExtResource("6_v05t1")]
 
 [connection signal="switched_chunks" from="creativeCam" to="world/chunk_generator" method="_on_creative_cam_switched_chunks"]
 [connection signal="value_changed" from="pause/Panel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/SpinBox" to="world/chunk_generator" method="_on_spin_box_value_changed"]

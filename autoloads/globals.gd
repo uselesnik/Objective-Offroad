@@ -1,7 +1,7 @@
 extends Node
 
 var chunk_size = 32
-var render_dist = 4
+var render_dist = 8
 var seed
 var fuel_value = 100
 var health = 6

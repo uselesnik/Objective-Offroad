@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="Objective: Offroad"
-run/main_scene="res://scenes/title.tscn"
+run/main_scene="res://3d_title.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Globals="*res://autoloads/globals.tscn"
+
+[editor]
+
+movie_writer/mjpeg_quality=0.9
+movie_writer/movie_file="P:/dev/videos/Title.avi"
 
 [input]
 

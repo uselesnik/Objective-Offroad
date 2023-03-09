@@ -12,6 +12,9 @@ func _ready():
 	prev_position = Vector2(0,0)
 	
 func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		Globals.pause_menu = true
+		get_tree().paused = true
 	changed_chunk()
 	var movement = Vector3(0,0,0)
 	if Input.is_action_pressed("fly_up"):

@@ -60,7 +60,7 @@ func set_mode(mode=0):
 	if mode == 1:
 		Globals.highScore = max(Globals.score, Globals.highScore)
 		$Panel/MarginContainer/VBoxContainer/HBoxContainer.visible = true
-		$Panel/MarginContainer/VBoxContainer/HBoxContainer/statsScore.text = "Score = " + str(Globals.score)
-		$Panel/MarginContainer/VBoxContainer/HBoxContainer/statsHigh.text = "High Score = " + str(Globals.highScore)
+		$Panel/MarginContainer/VBoxContainer/HBoxContainer/statsScore.text = "Score: " + str(Globals.score)
+		$Panel/MarginContainer/VBoxContainer/HBoxContainer/statsHigh.text = "High Score: " + str(Globals.highScore)
 		$Panel/MarginContainer/VBoxContainer/title.text = "Game over!"
 		$Panel/MarginContainer/VBoxContainer/resume.visible = false
