@@ -36,3 +36,6 @@ func _on_exit_pressed():
 func _on_options_pressed():
 	option_visible = !option_visible
 	start_visible = false
+
+
+

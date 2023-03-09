@@ -46,9 +46,7 @@ current = true
 visible = false
 
 [connection signal="switched_chunks" from="car" to="world/chunk_generator" method="_on_car_switched_chunks"]
-[connection signal="value_changed" from="pause/Panel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/SpinBox" to="world/chunk_generator" method="_on_spin_box_value_changed"]
 
 [editable path="car"]
 [editable path="car/untitled"]
 [editable path="pause"]
-[editable path="pause/Panel/MarginContainer/VBoxContainer/VBoxContainer"]

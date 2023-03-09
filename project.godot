@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Objective: Offroad"
-run/main_scene="res://3d_title.tscn"
+run/main_scene="res://TITLEv2.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
 

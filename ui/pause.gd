@@ -6,7 +6,6 @@ extends CanvasLayer
 
 
 var option_visible = false
-var new_game = preload("res://scenes/new_world.tscn")
 @onready var margin_container = $Panel/MarginContainer
 @onready var v_box_container = $Panel/MarginContainer/VBoxContainer
 
@@ -49,7 +48,7 @@ func _on_resume_pressed():
 
 func _on_return_pressed():
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/title.tscn")
+	get_tree().change_scene_to_file("res://TITLEv2.tscn")
 	get_parent().queue_free()
 
 func set_mode(mode=0):

@@ -3,6 +3,7 @@ extends Control
 @onready var cam_scene = preload("res://yet_another_test.tscn")
 
 @onready var seed_input = $"seed-input"
+signal changed_scene
 
 func _on_check_button_toggled(button_pressed):
 	var current_mode = seed_input.editable
@@ -20,7 +21,7 @@ func _on_car_butt_pressed():
 	else:
 		Globals.seed = randi()% 200000 - 100000
 	print(Globals.seed) 
-	get_tree().change_scene_to_packed(car_scene)
+	emit_signal("changed_scene", 1)
 	
 
 
@@ -30,4 +31,4 @@ func _on_cam_butt_pressed():
 	else:
 		Globals.seed = randi()% 200000 - 100000
 	print(Globals.seed)
-	get_tree().change_scene_to_packed(cam_scene)
+	emit_signal("changed_scene", 2)

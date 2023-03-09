@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cb8f446hdjog8"]
 
-[ext_resource type="Script" path="res://scenes/new_world.gd" id="1_raoat"]
+[ext_resource type="Script" path="res://scenes/new_world.gd" id="1_y2b0m"]
 [ext_resource type="Theme" uid="uid://5e15oeeud8lr" path="res://ui/theme.tres" id="2_2flcg"]
 
 [sub_resource type="Theme" id="Theme_um4hc"]
@@ -17,7 +17,7 @@ offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_um4hc")
-script = ExtResource("1_raoat")
+script = ExtResource("1_y2b0m")
 
 [node name="CheckButton" type="CheckButton" parent="."]
 layout_mode = 2
