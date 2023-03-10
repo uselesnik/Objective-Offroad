@@ -8,6 +8,7 @@ var health = 6
 var pause_menu = false
 var score = 0
 var highScore = 0
+var muted = false
 func _ready():
 	randomize()
 	seed = randi()% 10000
