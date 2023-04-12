@@ -4,8 +4,9 @@ signal render_dist_chaged
 var master_bus = AudioServer.get_bus_index("Master")
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$HBoxContainer3/mute.button_pressed = Globals.muted
 	$HBoxContainer2/HSlider.value = AudioServer.get_bus_volume_db(master_bus)
-	
+	$HBoxContainer4/seed.text = str(Globals.seed)
 
 
 
@@ -19,13 +20,14 @@ func _on_h_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(master_bus, value)
 	if value == -30:
 		AudioServer.set_bus_mute(master_bus, true)
-	else:
+	elif !Globals.muted:
 		AudioServer.set_bus_mute(master_bus, false)
 		
 
 
 func _on_mute_toggled(button_pressed):
 	AudioServer.set_bus_mute(master_bus, button_pressed)
+	Globals.muted = button_pressed
 
 
 func _on_spin_box_value_changed(value):
