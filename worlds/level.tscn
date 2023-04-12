@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://dm2cqyxtxhdck"]
 
-[ext_resource type="Script" path="res://worlds/level.gd" id="1_fv1sy"]
 [ext_resource type="PackedScene" uid="uid://cr38bvuwl623i" path="res://player/car.tscn" id="2_6civx"]
+[ext_resource type="PackedScene" uid="uid://dwfh2vwqkthcf" path="res://scenes/pickable_object.tscn" id="2_lsdll"]
 
 [sub_resource type="Texture2D" id="Texture2D_tiyox"]
 resource_local_to_scene = false
@@ -41,7 +41,6 @@ tonemap_mode = 3
 tonemap_white = 1.33
 
 [node name="Node3d" type="Node3D"]
-script = ExtResource("1_fv1sy")
 
 [node name="StaticBody3d" type="StaticBody3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
@@ -68,11 +67,6 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3d" type="CollisionShape3D" parent="StaticBody3d2"]
 transform = Transform3D(3.94313, -5.12227e-09, 0, 5.58794e-08, 1, 5.96046e-08, 0, 0, 3.0066, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_ja36g")
-
-[node name="Camera3d" type="Camera3D" parent="."]
-transform = Transform3D(0.884963, 0, 0.465661, 0, 1, 0, -0.465661, 0, 0.884963, 5.02803, 0.774158, 8.49058)
-current = true
-fov = 73.7535
 
 [node name="obsticles" type="Node3D" parent="."]
 
@@ -106,3 +100,10 @@ shadow_enabled = true
 [node name="car" parent="." instance=ExtResource("2_6civx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65823, 8.67117, -26.9745)
 dash_dist = 3000
+
+[node name="StaticBody3D" parent="." instance=ExtResource("2_lsdll")]
+transform = Transform3D(0.0158121, 0, -0.999875, 0, 1, 0, 0.999875, 0, 0.0158121, 15.7709, 0.581249, -26.3683)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.950206, 0, 0.311622, 0, 1, 0, -0.311622, 0, 0.950206, 20.6441, -7.60356, -38.7551)
+current = true

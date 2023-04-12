@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwfh2vwqkthcf"]
+
+[ext_resource type="Script" path="res://scenes/pickable.gd" id="1_h1d3x"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wf5ld"]
+height = 0.159936
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vox0o"]
+albedo_color = Color(0.992157, 1, 0.329412, 1)
+metallic = 0.77
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4ry01"]
+
+[node name="StaticBody3D" type="Area3D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_h1d3x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_wf5ld")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -3.44152e-09, -1, 0, 0.0787327, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_vox0o")
+mesh = SubResource("CylinderMesh_4ry01")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

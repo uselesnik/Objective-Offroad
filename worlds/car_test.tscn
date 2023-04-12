@@ -18,7 +18,7 @@ sky = SubResource("Sky_pw40r")
 tonemap_mode = 3
 tonemap_white = 1.33
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_oqmqf")
@@ -46,9 +46,6 @@ current = true
 visible = false
 
 [connection signal="switched_chunks" from="car" to="world/chunk_generator" method="_on_car_switched_chunks"]
-[connection signal="value_changed" from="pause/Panel/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/SpinBox" to="world/chunk_generator" method="_on_spin_box_value_changed"]
 
 [editable path="car"]
-[editable path="car/untitled"]
 [editable path="pause"]
-[editable path="pause/Panel/MarginContainer/VBoxContainer/VBoxContainer"]

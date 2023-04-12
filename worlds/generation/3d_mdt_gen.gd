@@ -1,9 +1,5 @@
 extends Node3D
 
-var chunks = {}
-var all_chunks = {}
-var thread
-
 var SIZE = 32
 var SEGMENT_SIZE = 1
 var WORLD_SCALE = 2
@@ -12,15 +8,7 @@ var mat = preload("res://models/red.tres")
 
 func _ready():
 	Globals.chunk_size = SIZE
-#	noise.noise_type = FastNoiseLite.TYPE_PERLIN
-#	thread = Thread.new()
 
-#func add_chunk(chunk_coords: Vector2):
-#	var key = str(chunk_coords.x) + ", " + str(chunk_coords.y)
-#	if chunks.has(key):
-#		return
-#	if !thread.is_alive():
-#		thread.start()
 
 func generate_chunk(chunk_coords: Vector2):
 	noise.seed = Globals.seed
@@ -40,7 +28,7 @@ func generate_chunk(chunk_coords: Vector2):
 	for i in vertex_array.size():
 		var y = noise.get_noise_2d(SIZE * chunk_coords.x / 1 + vertex_array[i].x / 1, SIZE * chunk_coords.y / 1 + vertex_array[i].z / 1)
 #		print(y / 10)
-		vertex_array[i].y = (pow(2, y * 6.5) - 10 * sin(y)) * 1.7 - 10
+		vertex_array[i].y = (pow(2, y * 6.5) - 10 * tan(y)) * 1.7 - 10
 	array_mesh[ArrayMesh.ARRAY_VERTEX] = vertex_array
 	
 	var arr_mesh = ArrayMesh.new()

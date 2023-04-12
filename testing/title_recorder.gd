@@ -10,5 +10,3 @@ func _ready():
 func _process(delta):
 	$".".rotation.y += (delta * 0.1)
 #	print(rotation_degrees.y)
-	if rotation_degrees.y >= 360:
-		get_tree().quit()
