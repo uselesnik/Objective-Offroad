@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://c82pb1ev12j2q"]
+
+[ext_resource type="Material" uid="uid://bqkdvti86ql8t" path="res://models/red.tres" id="1_hwxku"]
+[ext_resource type="PackedScene" uid="uid://cr38bvuwl623i" path="res://player/car.tscn" id="3_qfy38"]
+[ext_resource type="PackedScene" uid="uid://cdhmjirxb1mox" path="res://ui/fuel_meter.tscn" id="4_hyfas"]
+[ext_resource type="PackedScene" uid="uid://dwfh2vwqkthcf" path="res://scenes/pickable_object.tscn" id="5_8t7rq"]
+[ext_resource type="PackedScene" uid="uid://dmm3omi0bi4c3" path="res://music/music_player.tscn" id="5_fs7ua"]
+[ext_resource type="PackedScene" uid="uid://c8en2cnu2xtw" path="res://ui/pause.tscn" id="6_wij03"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_co8vv"]
+
+[sub_resource type="Sky" id="Sky_pw40r"]
+sky_material = SubResource("ProceduralSkyMaterial_co8vv")
+
+[sub_resource type="Environment" id="Environment_oqmqf"]
+background_mode = 2
+sky = SubResource("Sky_pw40r")
+tonemap_mode = 3
+tonemap_white = 1.33
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yp8v5"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tqpcy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xebe"]
+albedo_color = Color(0.309804, 0.286275, 0.27451, 0.835294)
+
+[node name="Node3D2" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oqmqf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.942478, 0.334267, 0, -0.334267, 0.942478, 0, 4.18373, 4)
+
+[node name="world" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="world"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -0.507214, -0.369572, -0.369759)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_yp8v5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="world"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -0.507214, -0.369572, -0.369759)
+material_override = ExtResource("1_hwxku")
+mesh = SubResource("PlaneMesh_tqpcy")
+surface_material_override/0 = SubResource("StandardMaterial3D_4xebe")
+
+[node name="car" parent="." instance=ExtResource("3_qfy38")]
+transform = Transform3D(0.814946, 0, -0.579537, 0, 1, 0, 0.579537, 0, 0.814946, 4.97509, 1.30487, -4.94619)
+
+[node name="Camera3d" parent="car" index="5"]
+current = true
+
+[node name="Control" parent="." instance=ExtResource("4_hyfas")]
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("5_fs7ua")]
+
+[node name="pause" parent="." instance=ExtResource("6_wij03")]
+visible = false
+
+[node name="StaticBody3D" parent="." instance=ExtResource("5_8t7rq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8.59925, 0.0585572, -3.70131)
+
+[node name="StaticBody3D2" parent="." instance=ExtResource("5_8t7rq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8.59925, 0.0585572, -2.15325)
+mode = 1
+
+[node name="StaticBody3D3" parent="." instance=ExtResource("5_8t7rq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 14.0497, 0.0585572, -2.15325)
+mode = 1
+
+[node name="StaticBody3D4" parent="." instance=ExtResource("5_8t7rq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.5347, 0.0585572, -2.15325)
+mode = 1
+
+[node name="StaticBody3D5" parent="." instance=ExtResource("5_8t7rq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -30.7867, 0.0585572, 11.8811)
+mode = 2
+
+[node name="StaticBody3D6" parent="." instance=ExtResource("5_8t7rq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -30.7867, 0.0585572, 3.53123)
+mode = 2
+
+[node name="StaticBody3D7" parent="." instance=ExtResource("5_8t7rq")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -30.7867, 0.0585572, -4.2562)
+mode = 2
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.84015, 0, 0.542354, 0, 1, 0, -0.542354, 0, 0.84015, 7.42016, 1.82249, -0.144444)
+current = true
+
+[editable path="car"]
+[editable path="pause"]

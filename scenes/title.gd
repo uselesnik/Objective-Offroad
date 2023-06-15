@@ -2,8 +2,10 @@ extends Node2D
 
 @onready var option_select = $MarginContainer/VBoxContainer/optionSelect
 @onready var color_container = $colorContainer
+@onready var credits_menu = $MarginContainer/VBoxContainer/credits_menu
 var start_visible = false
 var option_visible = false
+var credits_visible = false
 var new_game = preload("res://scenes/new_world.tscn")
 @onready var margin_container = $MarginContainer
 @onready var v_box_container = $MarginContainer/VBoxContainer
@@ -37,5 +39,6 @@ func _on_options_pressed():
 	option_visible = !option_visible
 	start_visible = false
 
-
-
+func _on_credits_pressed():
+	credits_visible = !credits_visible
+	credits_menu.visible = credits_visible

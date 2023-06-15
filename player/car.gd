@@ -3,20 +3,20 @@ extends VehicleBody3D
 @export var dash_dist = 7000
 var timed_out = false
 var flipping = false
-var health = 6
 
 var chunk_size = Globals.chunk_size
 var prev_position = Vector2()
 signal switched_chunks
 
 func _ready():
+	Globals.coins = 0
 	Globals.health = 6
 	Globals.fuel_value = 100
 	Globals.pause_menu = false
 
 func _physics_process(delta):
 	changed_chunk()
-	if position.y < -100 or health <= 0:
+	if position.y < -100 or Globals.health <= 0:
 		die()
 	if Input.is_action_just_pressed("ui_cancel"):
 		Globals.pause_menu = true
@@ -25,7 +25,7 @@ func _physics_process(delta):
 		die()
 	steering = lerp(steering, Input.get_axis("ui_right", "ui_left") * 0.4, 5 * delta)
 	engine_force = Input.get_axis("ui_down", "ui_up") * 900
-	var fuel_spent = abs(Input.get_axis("ui_down", "ui_up")) * delta *0.2
+	var fuel_spent = abs(Input.get_axis("ui_down", "ui_up")) * delta * 0.8
 	if Input.is_action_just_released("ui_accept") && !timed_out:
 		fuel_spent += 6.4
 		timed_out = true
@@ -33,6 +33,7 @@ func _physics_process(delta):
 		await get_tree().create_timer(1.0).timeout
 		timed_out = false
 	if Input.is_action_just_released("flip") && !flipping:
+		fuel_spent += 3.2
 		flipping = true
 		var timer = Timer.new()
 		timer.set_wait_time(1.5)
@@ -57,9 +58,11 @@ func changed_chunk():
 	prev_position = chunk_coords
 
 func _on_damage_detector_body_entered(body):
-	health -= 1
-	Globals.health = health
+	Globals.health -= 1
 
 func die():
+	Globals.score = Globals.coins
+	Globals.highScore = Globals.score if(Globals.score > Globals.highScore)else Globals.highScore
 	Globals.pause_menu = true
 	get_parent().get_node("pause").set_mode(1)
+

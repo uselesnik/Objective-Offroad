@@ -70,6 +70,26 @@ text = "options"
 [node name="optionSelect" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_b2282")]
 layout_mode = 2
 
+[node name="credits" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "credits"
+
+[node name="credits_menu" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/credits_menu"]
+layout_mode = 2
+text = "created by: Timotej Ušeničnik"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/credits_menu"]
+layout_mode = 2
+text = "Mentor: Alen Ajanović"
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/credits_menu"]
+layout_mode = 2
+text = "Vegova 2023"
+
 [node name="exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "exit"
@@ -78,4 +98,5 @@ text = "exit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]

@@ -98,12 +98,19 @@ transform = Transform3D(1, 0, 0, 0, 0.643483, 0.765461, 0, -0.765461, 0.643483, 
 shadow_enabled = true
 
 [node name="car" parent="." instance=ExtResource("2_6civx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.65823, 8.67117, -26.9745)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.13762, 9.0997, -26.0373)
 dash_dist = 3000
 
 [node name="StaticBody3D" parent="." instance=ExtResource("2_lsdll")]
-transform = Transform3D(0.0158121, 0, -0.999875, 0, 1, 0, 0.999875, 0, 0.0158121, 15.7709, 0.581249, -26.3683)
+transform = Transform3D(0.0158121, 0, -0.999875, 0, 1, 0, 0.999875, 0, 0.0158121, 15.767, 0.300312, -26.4132)
+
+[node name="StaticBody3D2" parent="." instance=ExtResource("2_lsdll")]
+transform = Transform3D(0.0158121, 0, -0.999875, 0, 1, 0, 0.999875, 0, 0.0158121, 15.767, 0.300312, -28.1505)
+mode = 1
+
+[node name="StaticBody3D3" parent="." instance=ExtResource("2_lsdll")]
+transform = Transform3D(0.0158121, 0, -0.999875, 0, 1, 0, 0.999875, 0, 0.0158121, 16.3511, 0.300312, -25.1643)
+mode = 2
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.950206, 0, 0.311622, 0, 1, 0, -0.311622, 0, 0.950206, 20.6441, -7.60356, -38.7551)
-current = true

@@ -5,6 +5,7 @@ var current_chunks = {}
 var chunk_circle_template = []
 
 func _ready(): 
+	world_gen.erase_all_pickups()
 	chunk_circle_template = generate_chunk_circle_template()
 	generate_chunk_circle(0,0)
 	print("loaded")

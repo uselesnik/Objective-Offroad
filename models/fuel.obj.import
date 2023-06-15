@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://chi33nq6p5ivs"
+path="res://.godot/imported/fuel.obj-cc295b4767494afb38e16f3d9512a130.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fuel.obj-cc295b4767494afb38e16f3d9512a130.mesh"]
+
+source_file="res://models/fuel.obj"
+dest_files=["res://.godot/imported/fuel.obj-cc295b4767494afb38e16f3d9512a130.mesh", "res://.godot/imported/fuel.obj-cc295b4767494afb38e16f3d9512a130.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

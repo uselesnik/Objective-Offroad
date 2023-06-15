@@ -16,6 +16,8 @@ func _on_check_button_toggled(button_pressed):
 
 
 func _on_car_butt_pressed():
+	Globals.coins = 0
+	Globals.score = 0
 	if seed_input.text != "" && seed_input.text.is_valid_int(): 
 		Globals.seed = seed_input.text.to_int() % 200000
 	else:
@@ -31,4 +33,5 @@ func _on_cam_butt_pressed():
 	else:
 		Globals.seed = randi()% 200000 - 100000
 	print(Globals.seed)
+	Globals.pause_menu = false
 	emit_signal("changed_scene", 2)

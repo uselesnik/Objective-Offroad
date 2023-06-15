@@ -1,28 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwfh2vwqkthcf"]
+[gd_scene load_steps=6 format=3 uid="uid://dwfh2vwqkthcf"]
 
 [ext_resource type="Script" path="res://scenes/pickable.gd" id="1_h1d3x"]
+[ext_resource type="PackedScene" uid="uid://dnvanbtbsjxxa" path="res://models/fuel-scene.tscn" id="2_7yejy"]
+[ext_resource type="PackedScene" uid="uid://bhkuod5etwll8" path="res://models/coin-scene.tscn" id="3_188vh"]
+[ext_resource type="PackedScene" uid="uid://d2hi816bu32c2" path="res://models/heart-scene.tscn" id="4_dd4y2"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_wf5ld"]
-height = 0.159936
+[sub_resource type="BoxShape3D" id="BoxShape3D_srv8b"]
+size = Vector3(0.560498, 0.749834, 0.578864)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vox0o"]
-albedo_color = Color(0.992157, 1, 0.329412, 1)
-metallic = 0.77
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_4ry01"]
-
-[node name="StaticBody3D" type="Area3D"]
+[node name="StaticBody3D" type="Area3D" groups=["pickable"]]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 18
 script = ExtResource("1_h1d3x")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-shape = SubResource("CylinderShape3D_wf5ld")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.294019, 0)
+shape = SubResource("BoxShape3D_srv8b")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -3.44152e-09, -1, 0, 0.0787327, -4.37114e-08, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_vox0o")
-mesh = SubResource("CylinderMesh_4ry01")
+[node name="Fuel" parent="." instance=ExtResource("2_7yejy")]
+visible = false
 
+[node name="Coin" parent="." instance=ExtResource("3_188vh")]
+visible = false
+
+[node name="Heart" parent="." instance=ExtResource("4_dd4y2")]
+visible = false
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

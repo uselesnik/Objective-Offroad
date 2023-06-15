@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var option_select = $Panel/MarginContainer/VBoxContainer/VBoxContainer
 @onready var color_container = $colorContainer
 
-
+signal exited
 var option_visible = false
 @onready var margin_container = $Panel/MarginContainer
 @onready var v_box_container = $Panel/MarginContainer/VBoxContainer
@@ -48,6 +48,7 @@ func _on_resume_pressed():
 
 func _on_return_pressed():
 	get_tree().paused = false
+	emit_signal("exited")
 	get_tree().change_scene_to_file("res://TITLEv2.tscn")
 	get_parent().queue_free()
 

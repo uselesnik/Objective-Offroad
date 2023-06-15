@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2851ov4litdn"]
+
+[ext_resource type="PackedScene" uid="uid://dnvanbtbsjxxa" path="res://models/fuel-scene.tscn" id="1_et1jk"]
+[ext_resource type="PackedScene" uid="uid://bhkuod5etwll8" path="res://models/coin-scene.tscn" id="3_d0buf"]
+[ext_resource type="PackedScene" uid="uid://d2hi816bu32c2" path="res://models/heart-scene.tscn" id="4_3uktk"]
+[ext_resource type="PackedScene" uid="uid://dhxfuhj0dk4yd" path="res://player/creative_cam.tscn" id="4_od0qj"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Fuel" parent="." instance=ExtResource("1_et1jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.872872, 0, 0)
+
+[node name="creativeCam" parent="." instance=ExtResource("4_od0qj")]
+transform = Transform3D(0.183866, 0, 0.982951, 0, 1, 0, -0.982951, 0, 0.183866, 1.50367, 0, 0.477282)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.935314, -0.176727, 0.30652, 0, 0.866322, 0.499486, -0.353818, -0.467176, 0.810283, 2.68608, 2.8454, 6.11024)
+
+[node name="Coin" parent="." instance=ExtResource("3_d0buf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.430305, 0, 0)
+
+[node name="Heart" parent="." instance=ExtResource("4_3uktk")]

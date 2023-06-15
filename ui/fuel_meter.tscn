@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdhmjirxb1mox"]
+[gd_scene load_steps=12 format=3 uid="uid://cdhmjirxb1mox"]
 
 [ext_resource type="Script" path="res://player/fuel.gd" id="1_3laax"]
 [ext_resource type="Texture2D" uid="uid://46dt5chdyf3v" path="res://ui/fuel.png" id="2_kqan4"]
@@ -6,6 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://cougpd6fm6yq4" path="res://ui/health_bar_under.png" id="4_0h21r"]
 [ext_resource type="Texture2D" uid="uid://tenv7ywjxcdp" path="res://ui/health_bar.png" id="5_gv8ks"]
 [ext_resource type="Texture2D" uid="uid://dvjwb8e8nm2e5" path="res://ui/health_bar_over.png" id="6_a1efe"]
+[ext_resource type="Script" path="res://ui/MarginContainer.gd" id="7_beflw"]
+[ext_resource type="Texture2D" uid="uid://dt8n6ud01cclr" path="res://ui/Sprite-0001.png" id="7_ikc3a"]
+
+[sub_resource type="Theme" id="Theme_jk2gh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4h43a"]
+bg_color = Color(0.6, 0.6, 0.6, 0.0823529)
+
+[sub_resource type="Theme" id="Theme_gi73d"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -47,3 +56,39 @@ fill_mode = 1
 texture_under = ExtResource("4_0h21r")
 texture_over = ExtResource("5_gv8ks")
 texture_progress = ExtResource("6_a1efe")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 57.0
+offset_bottom = 40.0
+script = ExtResource("7_beflw")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 20.0
+theme = SubResource("Theme_jk2gh")
+theme_override_styles/panel = SubResource("StyleBoxFlat_4h43a")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_gi73d")
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/Panel/MarginContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("7_ikc3a")
+expand_mode = 3
+
+[node name="coin_text" type="Label" parent="MarginContainer/PanelContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "0"

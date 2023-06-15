@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnvanbtbsjxxa"]
+
+[ext_resource type="ArrayMesh" uid="uid://chi33nq6p5ivs" path="res://models/fuel.obj" id="1_hsaot"]
+[ext_resource type="Texture2D" uid="uid://7h1x6ptba1kg" path="res://models/canister.png" id="2_7ntyo"]
+[ext_resource type="Texture2D" uid="uid://briwuu4tgytdd" path="res://models/lid.png" id="3_qkv7o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x07gw"]
+albedo_texture = ExtResource("2_7ntyo")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6x8ea"]
+albedo_texture = ExtResource("3_qkv7o")
+texture_filter = 0
+
+[node name="Fuel" type="MeshInstance3D"]
+mesh = ExtResource("1_hsaot")
+surface_material_override/0 = SubResource("StandardMaterial3D_x07gw")
+surface_material_override/1 = SubResource("StandardMaterial3D_6x8ea")

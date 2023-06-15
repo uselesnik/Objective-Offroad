@@ -86,7 +86,7 @@ transform = Transform3D(-1.31134e-08, -0.077, 7.10543e-15, 0.3, -3.36578e-09, 3.
 mesh = SubResource("CylinderMesh_5yvg6")
 
 [node name="first_person_cam" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.864214, 0.216109, 0.0645032)
+transform = Transform3D(-4.27705e-08, 0, -0.978474, 0, 0.978474, 0, 0.978474, 0, -4.27705e-08, 0.872524, 0.326273, 0.0645032)
 fov = 81.9565
 
 [node name="Camera3d" type="Camera3D" parent="."]
@@ -99,7 +99,7 @@ fov = 81.9565
 transform = Transform3D(0.841846, 0, 0, 0, 0.251514, 0, 0, 0, -0.658228, 0.0950939, 0, 0)
 shape = SubResource("BoxShape3D_sr0o2")
 
-[node name="damage_detector" type="Area3D" parent="."]
+[node name="damage_detector" type="Area3D" parent="." groups=["car-a"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0102242, 0.162202, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="damage_detector"]
@@ -110,5 +110,14 @@ shape = SubResource("BoxShape3D_c27i0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.334878, 0)
 material_override = SubResource("StandardMaterial3D_a23hv")
 mesh = ExtResource("3_reibs")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.334878, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D"]
+transform = Transform3D(-4.27704e-08, 0, -0.978473, 0, 0.978473, 0, 0.978473, 0, -4.27704e-08, 1.11751, 0.334878, 0.451372)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Node3D"]
+transform = Transform3D(-4.27704e-08, 0, -0.978473, 0, 0.978473, 0, 0.978473, 0, -4.27704e-08, 1.11751, 0.334878, -0.481447)
 
 [connection signal="body_entered" from="damage_detector" to="." method="_on_damage_detector_body_entered"]

@@ -18,7 +18,7 @@ sky = SubResource("Sky_pw40r")
 tonemap_mode = 3
 tonemap_white = 1.33
 
-[node name="Node3D" type="Node3D"]
+[node name="title" type="Node3D"]
 script = ExtResource("1_luhaf")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
