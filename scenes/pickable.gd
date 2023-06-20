@@ -1,7 +1,7 @@
 extends Area3D
 
 
-@export_enum("fuel", "coin", "heart") var mode: int
+@export_enum("fuel", "coin", "heart", "diamond") var mode: int
 var value = 0
 var og_pos 
 signal picked_up
@@ -14,6 +14,8 @@ func _ready():
 			$"Coin".visible = true
 		2:
 			$"Heart".visible = true
+		3:
+			$"Diamond".visible = true
 	og_pos = position.y
 
 
@@ -26,6 +28,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("car"):
+		Globals.pickups[mode] += 1
 		match mode:
 			0:
 				Globals.fuel_value += 90
@@ -41,6 +44,14 @@ func _on_body_entered(body):
 					Globals.health = 6
 					Globals.coins += 1
 				print_debug("health picked")
+			3: 
+				Globals.health += 1
+				if Globals.health > 6:
+					Globals.health = 6
+				Globals.coins += 2
+				Globals.fuel_value += 40
+				if Globals.fuel_value > 100:
+					Globals.fuel_value = 100
 		emit_signal("picked_up")
 		queue_free()
 

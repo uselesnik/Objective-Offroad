@@ -38,6 +38,7 @@ func generate_chunk(chunk_coords: Vector2):
 		var col = get_color(height)
 		color_array.append(col)
 		vertex_array[i].y = height 
+#	array_mesh[ArrayMesh.ARRAY_NORMAL]
 	array_mesh[ArrayMesh.ARRAY_VERTEX] = vertex_array
 	array_mesh[ArrayMesh.ARRAY_COLOR] = color_array
 	var y1 = vertex_array[vertex_array.size()/2].y
@@ -82,12 +83,14 @@ func _on_creative_cam_switched_chunks(prev_pos, new_pos):
 func spawn_pickup(pos):
 	var pick_inst = pickable.instantiate()
 	var m = rng.randi()%20 
-	if m <= 10:
+	if m <= 9:
 		pick_inst.mode = 1 
-	elif m < 17:
+	elif m < 16:
 		pick_inst.mode = 0 
-	else:
+	elif m < 19:
 		pick_inst.mode = 2 
+	else:
+		pick_inst.mode = 3 
 	pick_inst.name = "p_" + str(pos)
 	pick_inst.position = pos
 	get_tree().root.get_child(0).add_child(pick_inst)

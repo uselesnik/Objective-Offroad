@@ -1,12 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwfh2vwqkthcf"]
+[gd_scene load_steps=9 format=3 uid="uid://dwfh2vwqkthcf"]
 
 [ext_resource type="Script" path="res://scenes/pickable.gd" id="1_h1d3x"]
 [ext_resource type="PackedScene" uid="uid://dnvanbtbsjxxa" path="res://models/fuel-scene.tscn" id="2_7yejy"]
 [ext_resource type="PackedScene" uid="uid://bhkuod5etwll8" path="res://models/coin-scene.tscn" id="3_188vh"]
 [ext_resource type="PackedScene" uid="uid://d2hi816bu32c2" path="res://models/heart-scene.tscn" id="4_dd4y2"]
+[ext_resource type="Texture2D" uid="uid://b4n5eyyj7dnbr" path="res://models/diamond-t.png" id="5_cah1k"]
+[ext_resource type="ArrayMesh" uid="uid://bpelv0qhocoti" path="res://models/diamond.obj" id="6_rtxoj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_srv8b"]
 size = Vector3(0.560498, 0.749834, 0.578864)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pe600"]
+albedo_texture = ExtResource("5_cah1k")
+emission_enabled = true
+emission = Color(0.160784, 0.513726, 0.639216, 1)
+texture_filter = 0
 
 [node name="StaticBody3D" type="Area3D" groups=["pickable"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -26,6 +34,11 @@ visible = false
 
 [node name="Heart" parent="." instance=ExtResource("4_dd4y2")]
 visible = false
+
+[node name="Diamond" type="MeshInstance3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_pe600")
+mesh = ExtResource("6_rtxoj")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

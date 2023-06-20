@@ -15,6 +15,7 @@ func _ready():
 	Globals.pause_menu = false
 
 func _physics_process(delta):
+#	$Camera3d.rotation.x = -$".".rotation.x
 	changed_chunk()
 	if position.y < -100 or Globals.health <= 0:
 		die()
@@ -36,16 +37,8 @@ func _physics_process(delta):
 	if Input.is_action_just_released("flip") && !flipping:
 		fuel_spent += 3.2
 		flipping = true
-		var timer = Timer.new()
-		timer.set_wait_time(1.5)
-		timer.start()
-		get_tree().get_root().add_child(timer)
-		while true:
-			$".".rotation.x = lerp_angle($".".rotation.x, 0, 1)
-			$".".rotation.z = lerp_angle($".".rotation.z, 0, 1)
-			if timer.time_left == 0:
-				timer.queue_free()
-				break
+		$".".rotation.x = lerp_angle($".".rotation.x, 0, 1)
+		$".".rotation.z = lerp_angle($".".rotation.z, 0, 1)
 		flipping = false
 	Globals.fuel_value -= fuel_spent
 	

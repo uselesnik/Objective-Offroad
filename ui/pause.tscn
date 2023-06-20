@@ -71,10 +71,22 @@ text = "options"
 [node name="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer" instance=ExtResource("2_x0304")]
 layout_mode = 2
 
+[node name="stats" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "stats"
+
+[node name="statText" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Fuel picked up:
+Coins picked up:
+Hearts picked up:
+Diamonds picked up:"
+
 [node name="return" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "return to main menu"
 
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/stats" to="." method="_on_stats_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/return" to="." method="_on_return_pressed"]

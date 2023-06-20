@@ -9,6 +9,7 @@ func _on_color_rect_changed_scene(value):
 		get_tree().change_scene_to_packed(creative)
 	if value == 1:
 		print("aha1")
+		Globals.pickups = [0,0,0,0]
 		get_tree().change_scene_to_packed(car_scene)
 	if value == 2:
 		print("aha2")

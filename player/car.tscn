@@ -72,7 +72,7 @@ transform = Transform3D(-1.31134e-08, -0.077, 2.59533e-15, 0.3, -3.36578e-09, 6.
 mesh = SubResource("CylinderMesh_5yvg6")
 
 [node name="back_left_wheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.650422, -0.22061, -0.744)
+transform = Transform3D(-4.58095e-08, 0, 1.048, 0, 1.048, 0, -1.048, 0, -4.58095e-08, -0.650422, -0.22061, -0.744)
 engine_force = 307.2
 brake = 0.2
 use_as_traction = true
@@ -85,15 +85,10 @@ damping_relaxation = 2.0
 transform = Transform3D(-1.31134e-08, -0.077, 8.88178e-15, 0.3, -3.36578e-09, 1.99063e-22, 1.58819e-22, 2.44249e-15, 0.3, -0.143, -0.165, 0.0911158)
 mesh = SubResource("CylinderMesh_5yvg6")
 
-[node name="first_person_cam" type="Camera3D" parent="."]
-transform = Transform3D(-4.27705e-08, 0, -0.978474, 0, 0.978474, 0, 0.978474, 0, -4.27705e-08, 0.872524, 0.326273, 0.0645032)
-fov = 81.9565
-
 [node name="Camera3d" type="Camera3D" parent="."]
-transform = Transform3D(0.0399271, 0.386836, -0.921284, -0.00257148, 0.922056, 0.387049, 0.999199, -0.0130847, 0.0378097, -2.43237, 2.28276, 0)
+transform = Transform3D(0.0390676, 0.378509, -0.901452, -0.00251613, 0.902207, 0.378717, 0.97769, -0.012803, 0.0369959, -2.43237, 2.28276, 2.91608e-08)
+current = true
 fov = 81.9565
-
-[node name="SpringArm3D" type="SpringArm3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.841846, 0, 0, 0, 0.251514, 0, 0, 0, -0.658228, 0.0950939, 0, 0)

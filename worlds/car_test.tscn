@@ -41,9 +41,6 @@ transform = Transform3D(1, 0, 0, 0, 0.942478, 0.334267, 0, -0.334267, 0.942478, 
 [node name="car" parent="." instance=ExtResource("3_uis5v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.97509, 1.30487, -4.94619)
 
-[node name="Camera3d" parent="car" index="5"]
-current = true
-
 [node name="Control" parent="." instance=ExtResource("4_w2cxw")]
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("5_lxb6d")]
