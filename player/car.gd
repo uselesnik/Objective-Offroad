@@ -24,6 +24,7 @@ func _physics_process(delta):
 	if (Globals.fuel_value <= 0):
 		die()
 	steering = lerp(steering, Input.get_axis("ui_right", "ui_left") * 0.4, 5 * delta)
+	
 	engine_force = Input.get_axis("ui_down", "ui_up") * 900
 	var fuel_spent = abs(Input.get_axis("ui_down", "ui_up")) * delta * 0.8
 	if Input.is_action_just_released("ui_accept") && !timed_out:
@@ -66,3 +67,9 @@ func die():
 	Globals.pause_menu = true
 	get_parent().get_node("pause").set_mode(1)
 
+
+
+
+func _on_mdt_world_move_car(new_y):
+	print("moved")
+	$".".position.y = new_y

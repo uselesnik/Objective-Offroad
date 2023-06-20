@@ -2,8 +2,8 @@ extends Node2D
 
 var noise = FastNoiseLite.new()
 var seed = 0
-var max = 0
-var min = 10
+var max:float = 0
+var min:float = 10
 var velocity
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,7 +27,12 @@ func get_input():
 func _physics_process(delta):
 	generate_texture()
 	get_input()
-	print(noise.get_noise_2d($".".position.x, $".".position.y) * 10)
+	var curr_data = noise.get_noise_2d($".".position.x, $".".position.y)
+	if (min > curr_data):
+		min = curr_data
+	if (max < curr_data):
+		max = curr_data
+	print("min ", min, "max ", max)
 
 	$".".position += velocity
 

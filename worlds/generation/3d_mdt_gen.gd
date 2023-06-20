@@ -1,17 +1,20 @@
 extends Node3D
-
 var rng = RandomNumberGenerator.new()
 
+var aha_array = []
 var SIZE = 32
 var SEGMENT_SIZE = 1
 var WORLD_SCALE = 2
 var mat = preload("res://models/red.tres")
 var pickable = preload("res://scenes/pickable_object.tscn")
 @export var noise = FastNoiseLite.new()
-
+signal move_car
 func _ready():
 	Globals.chunk_size = SIZE
 	rng.randomize()
+	var y = noise.get_noise_2d(0,0)
+	var height = (pow(2, y * 6.5) - 10 * tan(y)) * 1.7 - 10
+	emit_signal("move_car", height * 2 + 5)
 func generate_chunk(chunk_coords: Vector2):
 	
 	noise.seed = Globals.seed
@@ -26,12 +29,17 @@ func generate_chunk(chunk_coords: Vector2):
 	
 	var array_mesh = st.commit_to_arrays()
 	var vertex_array = array_mesh[ArrayMesh.ARRAY_VERTEX]
-	
+	var color_array = PackedColorArray()
+
 	
 	for i in vertex_array.size():
 		var y = noise.get_noise_2d(SIZE * chunk_coords.x / 1 + vertex_array[i].x / 1, SIZE * chunk_coords.y / 1 + vertex_array[i].z / 1)
-		vertex_array[i].y = (pow(2, y * 6.5) - 10 * tan(y)) * 1.7 - 10
+		var height = (pow(2, y * 6.5) - 10 * tan(y)) * 1.7 - 10
+		var col = get_color(height)
+		color_array.append(col)
+		vertex_array[i].y = height 
 	array_mesh[ArrayMesh.ARRAY_VERTEX] = vertex_array
+	array_mesh[ArrayMesh.ARRAY_COLOR] = color_array
 	var y1 = vertex_array[vertex_array.size()/2].y
 	
 	var arr_mesh = ArrayMesh.new()
@@ -88,7 +96,20 @@ func erase_all_pickups():
 	for i in get_tree().root.get_child(0).get_child_count():
 		get_tree().root.get_child(0).get_child(i).queue_free()
 
+func get_color(height):
+	clamp(height,-10.0,10.0)
+	height += 10
+	var h = 0.375 - (0.20 / 20 * height)
+	var v = 0.2 + (0.2 /20 * height)
+	var s = 0.8 - (height / 20 )
+#	noise *= 100
+#	var h = 160 - noise * 3.2
+#	h /= 360
+	var col = Color.from_hsv(h,s,v)
+	return col
 
 func _on_pause_exited():
+	print(aha_array.max())
+	print(aha_array.min())
 	print("exited")
 	erase_all_pickups()

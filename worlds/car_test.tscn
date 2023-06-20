@@ -17,6 +17,12 @@ background_mode = 2
 sky = SubResource("Sky_pw40r")
 tonemap_mode = 3
 tonemap_white = 1.33
+fog_light_color = Color(0.364706, 0.588235, 0.607843, 1)
+fog_aerial_perspective = 1.0
+fog_height_density = -16.0
+volumetric_fog_density = 0.0292
+volumetric_fog_albedo = Color(0.0862745, 0.105882, 0.113725, 1)
+volumetric_fog_detail_spread = 6.0
 
 [node name="Node3D2" type="Node3D"]
 
@@ -45,6 +51,7 @@ current = true
 [node name="pause" parent="." instance=ExtResource("6_4k6ei")]
 visible = false
 
+[connection signal="move_car" from="world/mdt_world" to="car" method="_on_mdt_world_move_car"]
 [connection signal="switched_chunks" from="car" to="world/chunk_generator" method="_on_car_switched_chunks"]
 [connection signal="exited" from="pause" to="world/mdt_world" method="_on_pause_exited"]
 

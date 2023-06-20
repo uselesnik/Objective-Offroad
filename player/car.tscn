@@ -30,7 +30,7 @@ steering = 1.82212
 script = ExtResource("1_7e7vl")
 
 [node name="front_right_wheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.58095e-08, 0, 1.048, 0, 1.048, 0, -1.048, 0, -4.58095e-08, 0.48949, -0.22061, 0.744283)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.48949, -0.22061, 0.744283)
 brake = 0.2
 steering = 1.82212
 use_as_steering = true
@@ -40,11 +40,11 @@ damping_compression = 1.902
 damping_relaxation = 2.0
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="front_right_wheel"]
-transform = Transform3D(-1.31134e-08, -0.077, 4.44089e-15, 0.3, -3.36578e-09, 3.78151e-23, 5.29396e-23, 6.66134e-16, 0.3, 0.143, -0.165, 0.012)
+transform = Transform3D(-1.31134e-08, -0.077, 2.59533e-15, 0.3, -3.36578e-09, 6.05056e-23, 5.29397e-23, 6.66134e-16, 0.3, 0.143, -0.165, 0.012)
 mesh = SubResource("CylinderMesh_5yvg6")
 
 [node name="front_left_wheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.58095e-08, 0, 1.048, 0, 1.048, 0, -1.048, 0, -4.58095e-08, 0.48949, -0.22061, -0.744)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.48949, -0.22061, -0.744)
 brake = 0.2
 steering = 1.82212
 use_as_steering = true
@@ -54,11 +54,11 @@ damping_compression = 1.902
 damping_relaxation = 2.0
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="front_left_wheel"]
-transform = Transform3D(-1.31134e-08, -0.077, 1.59872e-14, 0.3, -3.36578e-09, 3.78151e-23, 5.29396e-23, 6.66134e-16, 0.3, -0.143174, -0.165168, 0.0124326)
+transform = Transform3D(-1.31134e-08, -0.077, 2.59533e-15, 0.3, -3.36578e-09, 6.05056e-23, 5.29398e-23, 6.66134e-16, 0.3, -0.143174, -0.165168, 0.0124326)
 mesh = SubResource("CylinderMesh_5yvg6")
 
 [node name="back_right_wheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.58095e-08, 0, 1.048, 0, 1.048, 0, -1.048, 0, -4.58095e-08, -0.650422, -0.22061, 0.744283)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.650422, -0.22061, 0.744283)
 engine_force = 307.2
 brake = 0.2
 use_as_traction = true
@@ -68,11 +68,11 @@ damping_compression = 1.902
 damping_relaxation = 2.0
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="back_right_wheel"]
-transform = Transform3D(-1.31134e-08, -0.077, 4.44089e-15, 0.3, -3.36578e-09, 3.78151e-23, 5.29396e-23, 6.66134e-16, 0.3, 0.143, -0.165, 0.091)
+transform = Transform3D(-1.31134e-08, -0.077, 2.59533e-15, 0.3, -3.36578e-09, 6.05056e-23, 5.29397e-23, 6.66134e-16, 0.3, 0.143, -0.165, 0.091)
 mesh = SubResource("CylinderMesh_5yvg6")
 
 [node name="back_left_wheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.58095e-08, 0, 1.048, 0, 1.048, 0, -1.048, 0, -4.58095e-08, -0.650422, -0.22061, -0.744)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.650422, -0.22061, -0.744)
 engine_force = 307.2
 brake = 0.2
 use_as_traction = true
@@ -82,7 +82,7 @@ damping_compression = 1.902
 damping_relaxation = 2.0
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="back_left_wheel"]
-transform = Transform3D(-1.31134e-08, -0.077, 7.10543e-15, 0.3, -3.36578e-09, 3.78151e-23, 1.05879e-22, 1.77636e-15, 0.3, -0.143, -0.165, 0.0911159)
+transform = Transform3D(-1.31134e-08, -0.077, 8.88178e-15, 0.3, -3.36578e-09, 1.99063e-22, 1.58819e-22, 2.44249e-15, 0.3, -0.143, -0.165, 0.0911158)
 mesh = SubResource("CylinderMesh_5yvg6")
 
 [node name="first_person_cam" type="Camera3D" parent="."]
