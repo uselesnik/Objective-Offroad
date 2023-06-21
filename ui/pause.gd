@@ -47,6 +47,7 @@ func _on_resume_pressed():
 
 
 func _on_return_pressed():
+	Globals.render_dist = 8
 	get_tree().paused = false
 	emit_signal("exited")
 	get_tree().change_scene_to_file("res://TITLEv2.tscn")

@@ -8,6 +8,7 @@ func _on_color_rect_changed_scene(value):
 	if Input.is_action_just_pressed("ui_undo"):
 		get_tree().change_scene_to_packed(creative)
 	if value == 1:
+		Globals.render_dist = 4
 		print("aha1")
 		Globals.pickups = [0,0,0,0]
 		get_tree().change_scene_to_packed(car_scene)

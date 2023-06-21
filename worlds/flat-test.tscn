@@ -34,6 +34,8 @@ environment = SubResource("Environment_oqmqf")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.942478, 0.334267, 0, -0.334267, 0.942478, 0, 4.18373, 4)
 
+[node name="car" parent="." instance=ExtResource("3_qfy38")]
+
 [node name="world" type="Node3D" parent="."]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="world"]
@@ -47,12 +49,6 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -0.507214, -0.369572, -
 material_override = ExtResource("1_hwxku")
 mesh = SubResource("PlaneMesh_tqpcy")
 surface_material_override/0 = SubResource("StandardMaterial3D_4xebe")
-
-[node name="car" parent="." instance=ExtResource("3_qfy38")]
-transform = Transform3D(0.814946, 0, -0.579537, 0, 1, 0, 0.579537, 0, 0.814946, 4.97509, 1.30487, -4.94619)
-
-[node name="Camera3d" parent="car" index="5"]
-current = true
 
 [node name="Control" parent="." instance=ExtResource("4_hyfas")]
 
@@ -90,7 +86,5 @@ mode = 2
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.84015, 0, 0.542354, 0, 1, 0, -0.542354, 0, 0.84015, 7.42016, 1.82249, -0.144444)
-current = true
 
-[editable path="car"]
 [editable path="pause"]
