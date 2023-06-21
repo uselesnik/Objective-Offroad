@@ -70,7 +70,7 @@ mode = 1
 
 [node name="StaticBody3D4" parent="." instance=ExtResource("5_8t7rq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.5347, 0.0585572, -2.15325)
-mode = 1
+mode = 2
 
 [node name="StaticBody3D5" parent="." instance=ExtResource("5_8t7rq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -30.7867, 0.0585572, 11.8811)
@@ -78,7 +78,7 @@ mode = 2
 
 [node name="StaticBody3D6" parent="." instance=ExtResource("5_8t7rq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -30.7867, 0.0585572, 3.53123)
-mode = 2
+mode = 3
 
 [node name="StaticBody3D7" parent="." instance=ExtResource("5_8t7rq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -30.7867, 0.0585572, -4.2562)
